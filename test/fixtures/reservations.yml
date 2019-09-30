@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: MyString
+  date: MyString
+  num_of_guests: 1
+  restaurant_id: 1
+  user_id: 1
+  occasion: MyString
+
+two:
+  time: MyString
+  date: MyString
+  num_of_guests: 1
+  restaurant_id: 1
+  user_id: 1
+  occasion: MyString
