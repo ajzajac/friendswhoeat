@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to "Edit", edit_review_path(@review), class: "btn btn-small btn-primary my-1", style: "color:white" %>
 <div class="container">
+<%= link_to "Edit", edit_review_path(@review), class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<h3>My Review</h3>
 <p>
   <strong>Restaurant:</strong>
   <%= @review.restaurant.name %>
