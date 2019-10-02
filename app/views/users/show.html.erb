@@ -1,19 +1,67 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+<h2>Newsfeed</h2>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div>
+<h3>Newsfeed Latest Reservations</h3>
+<table class="table">
+
+<thead>
+<tr>
+  <th>Time</th>
+  <th>Num of guests</th>
+  <th>User</th>
+  <th>Restaurant</th>
+  <th>Occasion</th>
+</tr>
+</thead>
+
+<tbody>
+<% @feed_reservations.each do |reservation| %>
+  <tr>
+    <td><%= reservation.reservation_time.to_s %></td>
+    <td><%= reservation.num_of_guests %></td>
+    <td><%= reservation.user.email %></td>
+    <td><%= reservation.restaurant.name %></td>
+    <td><%= reservation.occasion %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+</div>
+
+<div>
+<h3>Newsfeed Latest Reviews</h3>
+<table class="table">
+
+<thead>
+<tr>
+  <th>Description</th>
+  <th>Rating</th>
+  <th>Restaurant</th>
+  <th>User</th>
+</tr>
+</thead>
+
+<tbody>
+<% @feed_reviews.each do |review| %>
+  <tr>
+    <td><%= review.description %></td>
+    <td><%= review.rating %></td>
+    <td><%= review.restaurant.name %></td>
+    <td><%= review.user.email %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+
+<%= link_to "My Reservations", reservations_path, class: "btn btn-small btn-primary my-1", style: "color:white" %><br/>
+<%= link_to "Read My Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:white" %><br/>
+<%= link_to "Follows", follows_path, class: "btn btn-small btn-primary my-1", style: "color:white" %><br/>

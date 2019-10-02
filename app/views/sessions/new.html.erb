@@ -1,12 +1,13 @@
+
 <% if flash[:error] %>
 <p><%= flash[:error] %></p>
 <% end %>
 <%= form_tag login_path do %>
-    <%= label_tag :for, "Email" %>
-    <%= text_field_tag :"user[email]" %>
-    <%= label_tag :for, "Password" %>
-    <%= password_field_tag :"user[password]" %>
-
-    <%= submit_tag 'Login' %>
-
+   <%= label_tag :for, "Email" %>
+   <%= text_field_tag :"user[email]" %>
+   <%= label_tag :for, "Password" %>
+   <%= password_field_tag :"user[password]" %><br>
+   <%= submit_tag 'Login' %><br>
+   <%= link_to "Create An Account", new_user_path %>
 <% end %>
+

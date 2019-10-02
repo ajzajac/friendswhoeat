@@ -4,12 +4,14 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @user_reservations = Reservation.all.select { |reservation| reservation.user == current_user }.sort_by{ |reservation| reservation.reservation_time ? reservation.reservation_time : DateTime.now }.reverse
+    
   end
 
   # GET /reservations/1
   # GET /reservations/1.json
   def show
+   
   end
 
   # GET /reservations/new
@@ -25,7 +27,7 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-
+    @reservation.user = current_user
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
@@ -61,6 +63,10 @@ class ReservationsController < ApplicationController
     end
   end
 
+  
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
@@ -69,6 +75,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:time, :date, :num_of_guests, :restaurant_id, :user_id, :occasion)
+      params.require(:reservation).permit(:reservation_time, :num_of_guests, :restaurant_id, :occasion)
     end
 end

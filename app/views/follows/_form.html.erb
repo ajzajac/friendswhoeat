@@ -12,13 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :follower_id %>
-    <%= form.number_field :follower_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :followee_id %>
-    <%= form.number_field :followee_id %>
+    <%= form.label :followee %>
+    <%= form.collection_select :followee_id, User.all.filter { |user| user != @user }, :id, :email %>
   </div>
 
   <div class="actions">

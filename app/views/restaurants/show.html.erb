@@ -20,5 +20,6 @@
   <%= @restaurant.rating %>
 </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<%= link_to "Back", restaurants_path, class: "btn btn-small btn-primary my-1", style: "color:white" %><br>
+<%= link_to "New Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:white" %><br>
+<%= link_to "Read Reviews", reviews_path(@restaurant), class: "btn btn-small btn-primary my-1", style: "color:white" %>

@@ -4,7 +4,8 @@ class FollowsController < ApplicationController
   # GET /follows
   # GET /follows.json
   def index
-    @follows = Follow.all
+    @follows = Follow.all.select {|follow| follow.follower == current_user }
+    
   end
 
   # GET /follows/1
@@ -15,6 +16,7 @@ class FollowsController < ApplicationController
   # GET /follows/new
   def new
     @follow = Follow.new
+    @user = current_user
   end
 
   # GET /follows/1/edit
@@ -25,6 +27,7 @@ class FollowsController < ApplicationController
   # POST /follows.json
   def create
     @follow = Follow.new(follow_params)
+    @follow.follower = current_user
 
     respond_to do |format|
       if @follow.save
@@ -69,6 +72,6 @@ class FollowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def follow_params
-      params.require(:follow).permit(:follower_id, :followee_id)
+      params.require(:follow).permit(:followee_id)
     end
 end
