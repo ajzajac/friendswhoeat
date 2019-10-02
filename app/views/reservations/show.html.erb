@@ -1,6 +1,6 @@
 
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <p>
   <strong>Time:</strong>
   <%= @reservation.reservation_time.to_s %>
@@ -25,6 +25,4 @@
   <strong>Occasion:</strong>
   <%= @reservation.occasion %>
 </p>
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+</div>

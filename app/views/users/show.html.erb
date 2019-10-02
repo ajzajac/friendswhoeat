@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <p>
-  <strong>Email:</strong>
+  <strong>Logged in as:</strong>
   <%= @user.email %>
 </p>
+
+<%= link_to "My Reservations", reservations_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<%= link_to "Make A Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<%= link_to "My Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<%= link_to "Write A Review", new_review_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<%= link_to "Friends", follows_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
 
 <h2>Newsfeed</h2>
 
 <div>
-<h3>Newsfeed Latest Reservations</h3>
+<h4>Friends Latest Reservations</h4>
 <table class="table">
 
 <thead>
@@ -37,7 +43,7 @@
 </div>
 
 <div>
-<h3>Newsfeed Latest Reviews</h3>
+<h4>Friends Latest Reviews</h4>
 <table class="table">
 
 <thead>
@@ -61,7 +67,4 @@
 </tbody>
 </table>
 </div>
-
-<%= link_to "My Reservations", reservations_path, class: "btn btn-small btn-primary my-1", style: "color:white" %><br/>
-<%= link_to "Read My Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:white" %><br/>
-<%= link_to "Follows", follows_path, class: "btn btn-small btn-primary my-1", style: "color:white" %><br/>
+</div>

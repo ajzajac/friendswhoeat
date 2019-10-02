@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h2>Newsfeed</h2>
 
 <div>
@@ -25,8 +25,7 @@
     <td><%= reservation.user.email %></td>
     <td><%= reservation.restaurant.name %></td>
     <td><%= reservation.occasion %></td>
-    <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-    <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   
   </tr>
 <% end %>
 </tbody>
@@ -36,6 +35,28 @@
 
 <div>
 <h3>Latest Reviews</h3>
-<ul>
-</ul>
+<div>
+<table class="table">
+
+<thead>
+<tr>
+  <th>User</th>
+  <th>Restaurant</th>
+  <th>Rating</th>
+  <th colspan="2"></th>
+</tr>
+</thead>
+
+<tbody>
+<% @reviews.each do |review| %>
+  <tr>
+    <td><%= review.user.email %></td>
+    <td><%= review.restaurant.name %></td>
+    <td><%= review.rating %></td>
+    <td><%= review.description %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
 </div>

@@ -1,30 +1,23 @@
 class FollowsController < ApplicationController
   before_action :set_follow, only: [:show, :edit, :update, :destroy]
 
-  # GET /follows
-  # GET /follows.json
+
   def index
     @follows = Follow.all.select {|follow| follow.follower == current_user }
     
   end
-
-  # GET /follows/1
-  # GET /follows/1.json
+ 
   def show
   end
 
-  # GET /follows/new
   def new
     @follow = Follow.new
     @user = current_user
   end
 
-  # GET /follows/1/edit
   def edit
   end
 
-  # POST /follows
-  # POST /follows.json
   def create
     @follow = Follow.new(follow_params)
     @follow.follower = current_user
@@ -40,8 +33,7 @@ class FollowsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /follows/1
-  # PATCH/PUT /follows/1.json
+  
   def update
     respond_to do |format|
       if @follow.update(follow_params)
@@ -54,8 +46,7 @@ class FollowsController < ApplicationController
     end
   end
 
-  # DELETE /follows/1
-  # DELETE /follows/1.json
+ 
   def destroy
     @follow.destroy
     respond_to do |format|
@@ -65,12 +56,11 @@ class FollowsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_follow
       @follow = Follow.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def follow_params
       params.require(:follow).permit(:followee_id)
     end

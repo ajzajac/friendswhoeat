@@ -8,6 +8,6 @@
    <%= label_tag :for, "Password" %>
    <%= password_field_tag :"user[password]" %><br>
    <%= submit_tag 'Login' %><br>
-   <%= link_to "Create An Account", new_user_path %>
+   <%= link_to "Create Account", new_user_path, class: "btn btn-sm btn-success my-1", style: "color:white" %>
 <% end %>
 

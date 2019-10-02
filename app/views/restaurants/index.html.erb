@@ -1,13 +1,27 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>All Restaurants</h1>
+<%= link_to "Make A Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<%= link_to "Write A Review", new_review_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Restaurant Name</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
   <tbody>
     <% @restaurants.each do |restaurant| %>
-      <ul>
-        <li>Name: <%= restaurant.name %></li>
-        <li><%= link_to 'More options for this restaurant', restaurant %></li>
-        </ul>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.rating %></td>
+        <td><%= link_to 'See Details', restaurant %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+</div>

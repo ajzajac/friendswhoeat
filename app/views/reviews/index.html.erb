@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Reviews</h1>
 
-<table>
+<%= link_to 'Write A Review', new_review_path, class: "btn btn-primary", role: "button", style: "margin-bottom: 10px" %>
+
+<table class="table">
   <thead>
     <tr>
       <th>Description</th>
@@ -14,20 +16,17 @@
   </thead>
 
   <tbody>
-    <% @reviews.each do |review| %>
+    <% @user_reviews.each do |review| %>
       <tr>
         <td><%= review.description %></td>
         <td><%= review.rating %></td>
-        <td><%= review.restaurant_id %></td>
-        <td><%= review.user_id %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= review.restaurant.name %></td>
+        <td><%= review.user.email %></td>
+        <td><%= link_to 'See Details', review %></td>
+        <td><%= link_to 'Change Review', edit_review_path(review) %></td>
+        <td><%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Review', new_review_path %>
+</div>

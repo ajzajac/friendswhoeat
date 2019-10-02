@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to "Edit", edit_review_path(@review), class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<div class="container">
+<p>
+  <strong>Restaurant:</strong>
+  <%= @review.restaurant.name %>
+</p>
+
 <p>
   <strong>Description:</strong>
   <%= @review.description %>
@@ -11,14 +18,7 @@
 </p>
 
 <p>
-  <strong>Restaurant:</strong>
-  <%= @review.restaurant_id %>
-</p>
-
-<p>
   <strong>User:</strong>
-  <%= @review.user_id %>
+  <%= @review.user.email %>
 </p>
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+</div>

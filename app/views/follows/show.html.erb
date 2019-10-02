@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h2>Following <%= @follow.followee.email %></h2>
 
 <div>
-<h3>Latest Reservations</h3>
+<h4>Latest Reservations</h4>
 <table class="table">
 
 <thead>
@@ -12,7 +12,7 @@
   <th>Num of guests</th>
   <th>Restaurant</th>
   <th>Occasion</th>
-  <th colspan="2"></th>
+
 </tr>
 </thead>
 
@@ -23,8 +23,6 @@
     <td><%= reservation.num_of_guests %></td>
     <td><%= reservation.restaurant.name %></td>
     <td><%= reservation.occasion %></td>
-    <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-    <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </tbody>
@@ -33,10 +31,28 @@
 </div>
 
 <div>
-<h3>Latest Reviews</h3>
-<ul>
-</ul>
-</div>
+<h4>Latest Reviews</h4>
+<table class="table">
 
-<%= link_to 'Delete', @follow, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', follows_path %>
+<thead>
+<tr>
+  <th>Review</th>
+  <th>Restaurant</th>
+  <th>Rating</th>
+  
+</tr>
+</thead>
+
+<tbody>
+<% @follow.followee.latest_reviews.each do |review| %>
+  <tr>
+    <td><%= review.description %></td>
+    <td><%= review.restaurant.name %></td>
+    <td><%= review.rating %></td>
+    
+    </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>

@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Follows</h1>
 
-<%= link_to 'New Follow', new_follow_path %>
+
+<%= link_to 'Find A Friend', new_follow_path, class: "btn btn-primary", role: "button", style: "margin-bottom: 10px" %>
 
 <table class="table">
   <thead>
@@ -23,3 +24,4 @@
     <% end %>
   </tbody>
 </table>
+</div>
