@@ -9,14 +9,14 @@
 <%= link_to "Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
 <%= link_to "My Friends", follows_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
 <%= link_to "My Newsfeed", feed_path, class: "btn btn-small btn-warning my-1", style: "color:black" %>
-
+<%= link_to "Chats", conversations_path, class: "btn btn-small btn-warning my-1", style: "color:black" %>
 <h1>My Reservations</h1>
 
 <table class="table">
   <thead>
     <tr>
       <th>Time</th>
-      <th>Num of guests</th>
+      <th>Guests</th>
       <th>Restaurant</th>
       <th>Occasion</th>
       <th colspan="2"></th>
@@ -30,8 +30,8 @@
         <td><%= reservation.num_of_guests %></td>
         <td><%= reservation.restaurant.name %></td>
         <td><%= reservation.occasion %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Change', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Cancel', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -8,6 +8,17 @@ class User < ApplicationRecord
     has_many :following_users, foreign_key: :followee_id, class_name: 'Follow'
     has_many :followers, through: :following_users
     validates :email, uniqueness: true
+    
+    acts_as_messageable
+
+    def display_name
+        "User #{display_name}"
+    end
+
+    def mailboxer_email(object)
+        nil
+    end
+
 
     def latest_reservations
         self.reservations.sort_by{|reservation| reservation.reservation_time }.last(5).reverse
