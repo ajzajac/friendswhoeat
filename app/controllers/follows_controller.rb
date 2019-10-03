@@ -1,6 +1,9 @@
 class FollowsController < ApplicationController
   before_action :set_follow, only: [:show, :edit, :update, :destroy]
 
+  def most_popular
+  end
+
 
   def index
     @follows = Follow.all.select {|follow| follow.follower == current_user }

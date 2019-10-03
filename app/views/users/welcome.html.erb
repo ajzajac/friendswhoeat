@@ -1,7 +1,7 @@
 <div class="container">
     <header class="jumbotron my-1 text-center">
-      <h1 class="display-3">Welcome To Friends Who Eat!</h1>
-      <p class="lead"> Connect with friends and share dining experiences!</p>
+      <h1 class="display-3" style="color:goldenrod">Welcome To Friends Who Eat!</h1>
+      <p class="lead; font-italic" style="color:firebrick"> Connect with friends and share dining experiences!</p>
     </header>
     </div>
 
@@ -13,10 +13,10 @@
 
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="https://image.freepik.com/free-photo/group-friends-eating-together_53876-9934.jpg" alt="">
+        <a href="<%= follows_path %>"><img class="card-img-top" src="https://image.freepik.com/free-photo/group-friends-eating-together_53876-9934.jpg"> </a>
           <div class="card-body">
-            <h4 class="card-title">Connect with friends!</h4>
-            <p class="card-text">Find friends to dine with!</p>
+            <h4 class="card-title">Connect with other foodies!</h4>
+            <p class="card-text">Find friends with similar food interests!</p>
           </div>
           
         </div>
@@ -24,9 +24,9 @@
 
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-        <img class="card-img-top" src="https://www.psychiclilly.com/wp-content/uploads/2018/12/psychic-reading-reviews-psychic-lilly-.jpg" alt="">
+        <a href="<%= feed_path %>"><img class="card-img-top" src="https://www.psychiclilly.com/wp-content/uploads/2018/12/psychic-reading-reviews-psychic-lilly-.jpg"> </a>
           <div class="card-body">
-            <h4 class="card-title">See what your friends think about a restaurant!</h4>
+            <h4 class="card-title">See what your friends are up to in your Newsfeed!</h4>
             <p class="card-text">OMG DID YOU SEE WHAT SARAH SAID!?!?!</p>
           </div>
          
@@ -35,8 +35,8 @@
 
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-        <img class="card-img-top" src="https://content.delta.com/content/www/en_US/traveling-with-us/onboard-services/food-and-beverage.damAsset.html/content/dam/delta-www/responsive/products/delta-experiences/Food-Drink-Overview/eugene-foodshoot-table-spread.jpg" alt="">
-          <div class="card-body">
+        <a href="<%= restaurants_path %>"><img class="card-img-top" src="https://content.delta.com/content/www/en_US/traveling-with-us/onboard-services/food-and-beverage.damAsset.html/content/dam/delta-www/responsive/products/delta-experiences/Food-Drink-Overview/eugene-foodshoot-table-spread.jpg"> </a>
+        <div class="card-body">
             <h4 class="card-title">Find your new go-to restaurant and feast!</h4>
             <p class="card-text">Select from the best restaurants in town!</p>
           </div>
@@ -46,10 +46,11 @@
 
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="https://www.mercatornet.com/images/stories/kids-sharing-ice-cream_fb.jpg" alt="">
+
+          <a href="<%= conversations_path %>"><img class="card-img-top" src="https://www.mercatornet.com/images/stories/kids-sharing-ice-cream_fb.jpg"> </a>
           <div class="card-body">
             <h4 class="card-title">Sharing is caring!</h4>
-            <p class="card-text">Share your ratings and reviews for all to see!</p>
+            <p class="card-text">Send messages with recommendations to friends!</p>
           </div>
         </div>
       </div>
@@ -58,6 +59,7 @@
    
 
   </div>
+<br>
 
 
   

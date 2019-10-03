@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<h1>Follows</h1>
+<h1 style="color:goldenrod;text-align:center">People You Follow</h1>
 
-
-<%= link_to 'Find A Friend', new_follow_path, class: "btn btn-primary", role: "button", style: "margin-bottom: 10px" %>
-
+<div class="container" style="text-align:center">
+<%= link_to 'Find A Friend', new_follow_path, class: "btn btn-primary", role: "button", style: "margin-bottom: 10px; color:goldenrod" %>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -19,7 +19,7 @@
       <tr>
         <td><%= follow.followee.email %></td>
         <td><%= link_to 'View Followee', follow %></td>
-        <td><%= link_to 'Delete', follow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Unfollow', follow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

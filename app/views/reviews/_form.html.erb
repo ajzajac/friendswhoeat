@@ -1,4 +1,4 @@
-<div class="container">
+<div style="text-align:center;" class="container">
 <%= form_with(model: review, local: true) do |form| %>
   <% if review.errors.any? %>
     <div id="error_explanation">
@@ -14,17 +14,17 @@
 
 
   <div class="field">
-    <%= form.label :restaurant %>
-    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name %>
+    <%= form.label "Restaurant: " %>
+    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name, {:selected => "15"} %>
   </div>
 
 <div class="field">
-    <%= form.label :description %>
+    <%= form.label "Your Review: " %>
     <%= form.text_area :description, :maxlength => 45 %>
   </div>
   
 <div class="field">
-    <%= form.label :rating %>
+    <%= form.label "Rating(1-5 stars): " %>
     <%= form.number_field :rating, max: 5, min: 0 %>
   </div>
 

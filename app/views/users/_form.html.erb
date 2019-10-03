@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container" style="text-align:center">
+  <div class="field">
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+</div>
+ 
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
@@ -26,3 +31,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

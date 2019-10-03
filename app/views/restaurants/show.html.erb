@@ -1,26 +1,27 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-
-<%= link_to "New Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<div class="container" style="text-align:center">
+<h2 style="color:goldenrod; text-align:center">More about <%= "#{@restaurant.name}" %></h2></br>
+<%= link_to "New Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:white; text-align:center" %>
 <%= link_to "Read Reviews", review_path(@restaurant), class: "btn btn-small btn-primary my-1", style: "color:white" %></br>
 </br>
-<h2>More details about <%= "#{@restaurant.name}" %></h2></br>
-<p>
+
+<p style="text-align:center">
   <strong>Name:</strong>
   <%= @restaurant.name %>
 </p>
+<hr>
 
-<p>
+<p style="text-align:center">
   <strong>Cuisine:</strong>
   <%= @restaurant.cuisine %>
 </p>
-
-<p>
+<hr>
+<p style="text-align:center">
   <strong>Location:</strong>
   <%= @restaurant.location %>
 </p>
-
-<p>
+<hr>
+<p style="text-align:center">
   <strong>Rating:</strong>
   <%= @restaurant.average_rating %>
 </p>

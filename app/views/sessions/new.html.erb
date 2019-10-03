@@ -1,13 +1,17 @@
-
+<div class="container" style="text-align:center">
 <% if flash[:error] %>
 <p><%= flash[:error] %></p>
 <% end %>
+<br>
+<h3 style="color:goldenrod; text-align:center">Please login to meet friends and get fed!</h3>
+<hr>
 <%= form_tag login_path do %>
    <%= label_tag :for, "Email" %>
    <%= text_field_tag :"user[email]" %>
    <%= label_tag :for, "Password" %>
    <%= password_field_tag :"user[password]" %><br>
-   <%= submit_tag 'Login' %><br>
-   <%= link_to "Create Account", new_user_path, class: "btn btn-sm btn-success my-1", style: "color:white" %>
+   <br>
+   <h5><%= submit_tag 'Login' %></h5>
+   <%= link_to "Create Account", new_user_path, class: "btn btn-sm btn-warning my-1", style: "color:dodgerblue" %>
 <% end %>
-
+</div>

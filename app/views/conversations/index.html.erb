@@ -1,10 +1,14 @@
-<h1>All Conversations</h1>
- <%= link_to 'Start New Chat', new_conversation_path, class: "btn btn-primary", role: "button", style: "margin-bottom: 10px" %>
-<br>
-<br>
+<div class="container" style="text-align:center">
+<h1 style="color:goldenrod;text-align:center">All Conversations</h1>
+ <%= link_to 'Start New Chat', new_conversation_path, class: "btn btn-warning", role: "button", style: "margin-bottom: 10px; color:dodgerblue" %>
+<hr>
 <% @conversations.each do |conversation| %>
     <div>
-    <h4>Chat about: <%= link_to conversation.subject, conversation_path(conversation) %></h4>
+    <h4>Chat Subject: <%= link_to conversation.subject, conversation_path(conversation) %></h4>
+   
+    <hr>
     <% end %>
+   
     </div>
-    
+    </div>
+ 

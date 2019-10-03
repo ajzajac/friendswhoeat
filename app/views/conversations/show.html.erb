@@ -1,9 +1,17 @@
+<div class="container" style="text-align:center;">
+<h2 style="color:goldenrod;">This Conversation</h2>
+<%= link_to "My Chats", conversations_path, class: "btn btn-small btn-warning my-1 text-align:center", style: "color:dodgerblue" %>
 
+<div>
+<hr>
+</div>
 <% @conversation.receipts_for(current_user).each do |receipt| %>
     <div>
-    <p>From: <%= receipt.message.sender.display_name %></p>
-    <p>Subject: <%= receipt.message.subject %></p>
-    <p>Message: <%= receipt.message.body %></p>
+    <p style="color:firebrick" class="font-italic"><%= receipt.message.sender.display_name %> said:</p>
+    <p class="font-weight-bold" style="font-size: x-large">Subject: <%= receipt.message.subject %></p>
+    <p style="font-size: large"><%= receipt.message.body %></p>
+    <p style="font-size: x-small">Sent at: <%= receipt.message.created_at %></p>
+    <hr>
     </div>
 <% end %>
 
@@ -11,5 +19,9 @@
     <div>
     <%= text_area_tag :body %>
     </div>
-    <%= submit_tag %>
+    <%= submit_tag "Send Message" %>
 <% end %>
+</div>
+<br>
+<br>
+<br>

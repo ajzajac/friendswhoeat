@@ -1,4 +1,6 @@
 class ConversationsController < ApplicationController
+  helper_method :get_mailbox, :get_conversation
+
     def index
         @conversations = current_user.mailbox.conversations
     end
@@ -17,5 +19,14 @@ class ConversationsController < ApplicationController
         redirect_to conversation_path(receipt.conversation)
     end
 
+
+
+    def get_conversation
+        @conversation ||= @mailbox.conversations.find(params[:id])
+    end
+
+    def get_mailbox
+        @mailbox ||= current_user.mailbox
+      end
 
 end

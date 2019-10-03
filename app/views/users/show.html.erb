@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<p>
-  <strong>Logged in as:</strong>
-  <%= @user.email %>
-</p>
 
-<%= link_to "Make A Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
-<%= link_to "Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
-<%= link_to "My Friends", follows_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
-<%= link_to "My Newsfeed", feed_path, class: "btn btn-small btn-warning my-1", style: "color:black" %>
-<%= link_to "Chats", conversations_path, class: "btn btn-small btn-warning my-1", style: "color:black" %>
-<h1>My Reservations</h1>
+<h1 style="color:goldenrod;text-align:center">My Reservations</h1>
+<div class="container" style="text-align:center">
+<%= link_to "Make A Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:goldenrod" %>
+<%= link_to "Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:goldenrod" %>
+<%= link_to "My Friends", follows_path, class: "btn btn-small btn-warning my-1", style: "color:dodgerblue" %>
+<%= link_to "My Newsfeed", feed_path, class: "btn btn-small btn-warning my-1", style: "color:dodgerblue" %>
+<%= link_to "My Chats", conversations_path, class: "btn btn-small btn-warning my-1", style: "color:dodgerblue" %>
+</div>
 
 <table class="table">
   <thead>

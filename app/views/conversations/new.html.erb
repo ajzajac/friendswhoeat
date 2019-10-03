@@ -1,16 +1,18 @@
-<h1>New Chat</h2>
-
+<div style="text-align:center;" class="container">
+<h1 style="color:goldenrod; text-align:center">Start New Chat</h2>
+<hr>
 <%= form_tag conversations_path, method: :post do %>
     <div>
-    <h3>User: <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :display_name) %></h3>
+    <h3>Send message to: <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :display_name) %></h3>
     </div>
       <br>
     <div>
-    <%= text_field_tag :subject, nil, placeholder: "Subject" %><br>
+    <h4>Subject: <%= text_field_tag :subject, nil, placeholder: "Subject" %></h4><br>
     </div>
       <br>
     <div>
-    <%= text_area_tag :body, nil, placeholder: "Message" %><br>
+    <h4>Message: <%= text_area_tag :body, nil, placeholder: "Message to send" %></h4><br>
     </div>
     <%= submit_tag "Send Message"%>
     <% end %>
+</div>

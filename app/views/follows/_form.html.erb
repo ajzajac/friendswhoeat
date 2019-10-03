@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :followee %>
-    <%= form.collection_select :followee_id, User.all.filter { |user| user != @user }, :id, :email %>
+   <h4> <%= form.label "People to follow: " %></h4>
+   <h4> <%= form.collection_select :followee_id, User.all.filter { |user| user != @user }, :id, :email %></h4>
   </div>
 
   <div class="actions">
-    <%= form.submit "Follow"%>
+  <h4>  <%= form.submit "Follow"%></h4>
   </div>
 <% end %>
