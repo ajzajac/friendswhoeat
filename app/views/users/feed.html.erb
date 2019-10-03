@@ -1,31 +1,29 @@
-<p id="notice"><%= notice %></p>
+
 <div class="container">
-<h2>Newsfeed</h2>
+<h1 style="color:goldenrod;text-align:center;">My Newsfeed</h1>
 
 <div>
-<h3>Latest Reservations</h3>
+<h4 style="color:goldenrod;">Friends Latest Reservations</h4>
 <table class="table">
 
 <thead>
 <tr>
-  <th>Time</th>
-  <th>Num of guests</th>
+  <th>Reservation Time</th>
+  <th>Guests</th>
   <th>User</th>
   <th>Restaurant</th>
   <th>Occasion</th>
-  <th colspan="2"></th>
 </tr>
 </thead>
 
 <tbody>
-<% @reservations.each do |reservation| %>
+<% @feed_reservations.each do |reservation| %>
   <tr>
     <td><%= reservation.reservation_time.to_s %></td>
     <td><%= reservation.num_of_guests %></td>
     <td><%= reservation.user.email %></td>
     <td><%= reservation.restaurant.name %></td>
     <td><%= reservation.occasion %></td>
-   
   </tr>
 <% end %>
 </tbody>
@@ -34,29 +32,29 @@
 </div>
 
 <div>
-<h3>Latest Reviews</h3>
-<div>
+<h4 style="color:goldenrod;">Friends Latest Reviews</h4>
 <table class="table">
 
 <thead>
 <tr>
-  <th>User</th>
-  <th>Restaurant</th>
+  <th>Description</th>
   <th>Rating</th>
-  <th colspan="2"></th>
+  <th>Restaurant</th>
+  <th>User</th>
 </tr>
 </thead>
 
 <tbody>
-<% @reviews.each do |review| %>
+<% @feed_reviews.each do |review| %>
   <tr>
-    <td><%= review.user.email %></td>
-    <td><%= review.restaurant.name %></td>
-    <td><%= review.rating %></td>
     <td><%= review.description %></td>
+    <td><%= review.rating %></td>
+    <td><%= review.restaurant.name %></td>
+    <td><%= review.user.email %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
+</div>
 </div>
 </div>

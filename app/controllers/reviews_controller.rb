@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:edit, :update, :destroy]
 
   
   def index
@@ -9,6 +9,8 @@ class ReviewsController < ApplicationController
 
 
   def show
+    @restaurant = Restaurant.find(params[:id])
+    @reviews = Review.all.select { |review| review.restaurant == @restaurant}
   end
 
   
@@ -26,7 +28,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to user_path(@review.user), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -59,6 +61,7 @@ class ReviewsController < ApplicationController
   private
    
     def set_review
+    
       @review = Review.find(params[:id])
     end
 

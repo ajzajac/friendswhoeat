@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @user_reservations = Reservation.all.select { |reservation| reservation.user == current_user }.sort_by{ |reservation| reservation.reservation_time ? reservation.reservation_time : DateTime.now }.reverse
+
     @user = current_user
     @feed_reservations = current_user.followees.flat_map { |followee_user| followee_user.latest_reservations }.sort_by{|reservation| reservation.reservation_time }.last(10).reverse
     @feed_reviews = current_user.followees.flat_map { |followee_user| followee_user.latest_reviews }.sort_by{|review| review.id }.last(10).reverse
@@ -65,6 +66,10 @@ class UsersController < ApplicationController
 
   def feed
     @reservations = current_user.followees.flat_map { |followee_user| followee_user.latest_reservations }.sort_by{|reservation| reservation.reservation_time }.last(10).reverse
+    @user = current_user
+    @feed_reservations = current_user.followees.flat_map { |followee_user| followee_user.latest_reservations }.sort_by{|reservation| reservation.reservation_time }.last(10).reverse
+    @feed_reviews = current_user.followees.flat_map { |followee_user| followee_user.latest_reviews }.sort_by{|review| review.id }.last(10).reverse
+  
   end
 
 

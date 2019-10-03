@@ -13,10 +13,10 @@
   </thead>
 
   <tbody>
-    <% @restaurants.each do |restaurant| %>
+    <% @sorted_restaurants.each do |restaurant| %>
       <tr>
         <td><%= restaurant.name %></td>
-        <td><%= restaurant.rating %></td>
+        <td><%= restaurant.average_rating %></td>
         <td><%= link_to 'See Details', restaurant %></td>
       </tr>
     <% end %>

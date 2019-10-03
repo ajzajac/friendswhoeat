@@ -20,12 +20,12 @@
 
 <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, :maxlength => 45 %>
   </div>
   
 <div class="field">
     <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <%= form.number_field :rating, max: 5, min: 0 %>
   </div>
 
   <div class="actions">

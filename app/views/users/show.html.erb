@@ -5,66 +5,35 @@
   <%= @user.email %>
 </p>
 
-<%= link_to "My Reservations", reservations_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
 <%= link_to "Make A Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
-<%= link_to "My Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
-<%= link_to "Write A Review", new_review_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
-<%= link_to "Friends", follows_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<%= link_to "Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<%= link_to "My Friends", follows_path, class: "btn btn-small btn-primary my-1", style: "color:white" %>
+<%= link_to "My Newsfeed", feed_path, class: "btn btn-small btn-warning my-1", style: "color:black" %>
 
-<h2>Newsfeed</h2>
+<h1>My Reservations</h1>
 
-<div>
-<h4>Friends Latest Reservations</h4>
 <table class="table">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Num of guests</th>
+      <th>Restaurant</th>
+      <th>Occasion</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
-<thead>
-<tr>
-  <th>Time</th>
-  <th>Num of guests</th>
-  <th>User</th>
-  <th>Restaurant</th>
-  <th>Occasion</th>
-</tr>
-</thead>
-
-<tbody>
-<% @feed_reservations.each do |reservation| %>
-  <tr>
-    <td><%= reservation.reservation_time.to_s %></td>
-    <td><%= reservation.num_of_guests %></td>
-    <td><%= reservation.user.email %></td>
-    <td><%= reservation.restaurant.name %></td>
-    <td><%= reservation.occasion %></td>
-  </tr>
-<% end %>
-</tbody>
+  <tbody>
+    <% @user_reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.reservation_time.to_s %></td>
+        <td><%= reservation.num_of_guests %></td>
+        <td><%= reservation.restaurant.name %></td>
+        <td><%= reservation.occasion %></td>
+        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-</div>
-
-<div>
-<h4>Friends Latest Reviews</h4>
-<table class="table">
-
-<thead>
-<tr>
-  <th>Description</th>
-  <th>Rating</th>
-  <th>Restaurant</th>
-  <th>User</th>
-</tr>
-</thead>
-
-<tbody>
-<% @feed_reviews.each do |review| %>
-  <tr>
-    <td><%= review.description %></td>
-    <td><%= review.rating %></td>
-    <td><%= review.restaurant.name %></td>
-    <td><%= review.user.email %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
-</div>
 </div>

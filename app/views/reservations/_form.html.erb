@@ -13,24 +13,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :reservation_time %>
-    <%= form.datetime_select :reservation_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :num_of_guests %>
-    <%= form.number_field :num_of_guests %>
-  </div>
-
-  <div class="field">
     <%= form.label :restaurant %>
     <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name %>
   </div>
 
   <div class="field">
+    <%= form.label "Guests" %>
+    <%= form.number_field :num_of_guests, max: 15 %>
+  </div>
+ 
+  <div class="field">
     <%= form.label :occasion %>
     <%= form.text_field :occasion %>
   </div>
+
+  <div class="field">
+    <%= form.label :reservation_time %>
+    <%= form.datetime_select :reservation_time %>
+  </div>
+
+ 
 
   <div class="actions">
     <%= form.submit %>

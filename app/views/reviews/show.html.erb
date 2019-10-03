@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<%= link_to "Edit", edit_review_path(@review), class: "btn btn-small btn-primary my-1", style: "color:white" %>
-<h3>My Review</h3>
-<p>
-  <strong>Restaurant:</strong>
-  <%= @review.restaurant.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @review.description %>
-</p>
+<h3><%="#{@restaurant.name}"%> Reviews</h3>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @review.rating %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @review.user.email %>
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Rating</th>
+      <th>Restaurant</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.description %></td>
+        <td><%= review.rating %></td>
+        <td><%= review.restaurant.name %></td>
+        <td><%= review.user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>

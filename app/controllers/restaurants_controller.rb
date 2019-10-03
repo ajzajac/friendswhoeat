@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
   
   def index
     @restaurants = Restaurant.all
+    @sorted_restaurants = Restaurant.all.sort_by {|restaurant| restaurant.average_rating.to_f}.reverse
   end
 
   def show
@@ -51,10 +52,7 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  # def total_rating
-  #   @ratings = Restaurant.all.select { |restaurant| restaurant.rating == self}
-  #   @ratings.reduce(:+).to_f / @ratings.size
-  # end
+  
 
 
   private

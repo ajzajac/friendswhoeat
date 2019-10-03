@@ -22,7 +22,6 @@
         <td><%= review.rating %></td>
         <td><%= review.restaurant.name %></td>
         <td><%= review.user.email %></td>
-        <td><%= link_to 'See Details', review %></td>
         <td><%= link_to 'Change Review', edit_review_path(review) %></td>
         <td><%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
