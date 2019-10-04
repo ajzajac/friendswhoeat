@@ -3,10 +3,12 @@ class ConversationsController < ApplicationController
 
     def index
         @conversations = current_user.mailbox.conversations
+        
     end
 
     def show
         @conversation = current_user.mailbox.conversations.find(params[:id])
+        
     end
 
     def new
@@ -19,6 +21,13 @@ class ConversationsController < ApplicationController
         redirect_to conversation_path(receipt.conversation)
     end
 
+    # def destroy
+    #     @conversation.destroy
+    #     respond_to do |format|
+    #       format.html { redirect_to reservations_url, notice: 'Chat was successfully deleted.' }
+    #       format.json { head :no_content }
+    #     end
+    # end
 
 
     def get_conversation

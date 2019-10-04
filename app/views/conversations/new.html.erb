@@ -3,15 +3,14 @@
 <hr>
 <%= form_tag conversations_path, method: :post do %>
     <div>
-    <h3>Send message to: <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :display_name) %></h3>
+    <p style="font-size: large">Send message to: <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :display_name) %></h3>
     </div>
-      <br>
+    
     <div>
-    <h4>Subject: <%= text_field_tag :subject, nil, placeholder: "Subject" %></h4><br>
+    <p style="font-size: medium">Subject: <%= text_field_tag :subject, nil, placeholder: "Subject" %></p><br>
     </div>
-      <br>
     <div>
-    <h4>Message: <%= text_area_tag :body, nil, placeholder: "Message to send" %></h4><br>
+    <p style="font-size: large">Message: <%= text_area_tag :body, nil, placeholder: "Message to send" %></h4><br>
     </div>
     <%= submit_tag "Send Message"%>
     <% end %>

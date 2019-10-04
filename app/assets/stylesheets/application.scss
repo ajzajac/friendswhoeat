@@ -12,6 +12,27 @@
  *
  
  */
- @import "bootstrap";
+
+ @import 'bootstrap';
+
 
  
+    .btn {
+        font-weight: bold;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-variant: small-caps;
+        font-size: large;
+    }
+    
+    h1 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-variant: small-caps
+    }
+
+    .convo {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+    }
+
+
+    

@@ -4,7 +4,7 @@
 <hr>
 <% @conversations.each do |conversation| %>
     <div>
-    <h4>Chat Subject: <%= link_to conversation.subject, conversation_path(conversation) %></h4>
+    <h4 class="convo">Chat Topic: <%= link_to conversation.subject, conversation_path(conversation) %></h4>
    
     <hr>
     <% end %>

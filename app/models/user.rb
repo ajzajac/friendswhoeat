@@ -9,6 +9,7 @@ class User < ApplicationRecord
     has_many :followers, through: :following_users
     validates :email, uniqueness: true
     acts_as_messageable
+    has_one_attached :image
 
     def display_name
         "#{email}"

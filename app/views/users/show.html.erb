@@ -3,19 +3,23 @@
 
 <h1 style="color:goldenrod;text-align:center">My Reservations</h1>
 <div class="container" style="text-align:center">
+<%= image_tag(@user.image, style: "width: 6rem; padding: .2rem;", class: "rounded-circle") %>
+<%= link_to "My Settings", edit_user_path, class: "btn btn-small btn-primary my-1", style: "color:goldenrod" %>
 <%= link_to "Make A Reservation", new_reservation_path, class: "btn btn-small btn-primary my-1", style: "color:goldenrod" %>
-<%= link_to "Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:goldenrod" %>
+<%= link_to "My Reviews", reviews_path, class: "btn btn-small btn-primary my-1", style: "color:goldenrod" %>
 <%= link_to "My Friends", follows_path, class: "btn btn-small btn-warning my-1", style: "color:dodgerblue" %>
-<%= link_to "My Newsfeed", feed_path, class: "btn btn-small btn-warning my-1", style: "color:dodgerblue" %>
+<%= link_to "My Newsfeed", feed_path, class: "btn btn-small btn-warning my-1 font-weight-bold", style: "color:dodgerblue" %>
 <%= link_to "My Chats", conversations_path, class: "btn btn-small btn-warning my-1", style: "color:dodgerblue" %>
 </div>
+
+
 
 <table class="table">
   <thead>
     <tr>
-      <th>Time</th>
-      <th>Guests</th>
       <th>Restaurant</th>
+      <th>Guests</th>
+      <th>Time</th>
       <th>Occasion</th>
       <th colspan="2"></th>
     </tr>
@@ -24,9 +28,9 @@
   <tbody>
     <% @user_reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.reservation_time.to_s %></td>
-        <td><%= reservation.num_of_guests %></td>
         <td><%= reservation.restaurant.name %></td>
+        <td><%= reservation.num_of_guests %></td>
+        <td><%= reservation.reservation_time.to_s %></td>
         <td><%= reservation.occasion %></td>
         <td><%= link_to 'Change', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Cancel', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

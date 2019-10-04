@@ -1,0 +1,37 @@
+<div style="text-align:center;"class="container">
+<%= form_with(model: reservation, local: true) do |form| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+        <% reservation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <hr>
+
+  <div class="field">
+    <%= form.label "Guests:" %>
+    <%= form.number_field :num_of_guests, max: 15 %>
+  </div>
+ 
+  <div class="field">
+    <%= form.label "Occasion:" %>
+    <%= form.text_field :occasion %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Time and Date:" %>
+    <%= form.datetime_select :reservation_time %>
+  </div>
+
+ 
+
+  <div class="actions">
+    <%= form.submit "Apply Changes"%>
+  </div>
+<% end %>
+</div>

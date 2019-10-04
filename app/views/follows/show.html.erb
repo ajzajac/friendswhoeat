@@ -1,30 +1,33 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 
-<h2 style="text-align:center; color:goldenrod">Some info about your friend!</h2>
-<br>
+<h1 style="text-align:center; color:goldenrod">Some info about your friend!</h1>
 <div>
+
+<div class="container" style="text-align:center">
+<%= link_to "Back To Newsfeed", feed_path, class: "btn btn-small btn-warning my-1 font-weight-bold", style: "color:dodgerblue" %>
+</div>
+<hr>
 <h4 style="color:firebrick; text-align:center;"><%="#{@follow.followee.email}'s"%> Latest Reservations</h4>
 <table class="table">
 
 <thead>
 <tr>
-  <th>Time</th>
-  <th>Num of guests</th>
   <th>Restaurant</th>
+  <th>Num of guests</th>
   <th>Occasion</th>
-
+  <th>Time</th>
 </tr>
 </thead>
 
 <tbody>
 <% @follow.followee.latest_reservations.each do |reservation| %>
   <tr>
-    <td><%= reservation.reservation_time.to_s %></td>
-    <td><%= reservation.num_of_guests %></td>
     <td><%= reservation.restaurant.name %></td>
+    <td><%= reservation.num_of_guests %></td>
     <td><%= reservation.occasion %></td>
-  </tr>
+    <td><%= reservation.reservation_time.to_s %></td>
+   </tr>
 <% end %>
 </tbody>
 </table>
@@ -37,9 +40,9 @@
 
 <thead>
 <tr>
-  <th>Review</th>
   <th>Restaurant</th>
   <th>Rating</th>
+  <th>Review</th>
   
 </tr>
 </thead>
@@ -47,9 +50,9 @@
 <tbody>
 <% @follow.followee.latest_reviews.each do |review| %>
   <tr>
-    <td><%= review.description %></td>
     <td><%= review.restaurant.name %></td>
     <td><%= review.rating %></td>
+    <td><%= review.description %></td>
     
     </tr>
 <% end %>
@@ -57,3 +60,5 @@
 </table>
 </div>
 </div>
+<br>
+

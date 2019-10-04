@@ -1,16 +1,16 @@
 <div class="container" style="text-align:center;">
-<h2 style="color:goldenrod;">This Conversation</h2>
+<h1 style="color:goldenrod;">This Conversation</h1>
 <%= link_to "My Chats", conversations_path, class: "btn btn-small btn-warning my-1 text-align:center", style: "color:dodgerblue" %>
-
 <div>
 <hr>
 </div>
 <% @conversation.receipts_for(current_user).each do |receipt| %>
-    <div>
-    <p style="color:firebrick" class="font-italic"><%= receipt.message.sender.display_name %> said:</p>
-    <p class="font-weight-bold" style="font-size: x-large">Subject: <%= receipt.message.subject %></p>
+    <div class="convo">
+    <p style="font-size: xx-small">At: <%= receipt.message.created_at %></p>
+    <p style="color:firebrick; font-size: small" class="font-italic"><%= receipt.message.sender.display_name %> said:</p>
+    <p style="">Topic: <%= receipt.message.subject %></p>
     <p style="font-size: large"><%= receipt.message.body %></p>
-    <p style="font-size: x-small">Sent at: <%= receipt.message.created_at %></p>
+    
     <hr>
     </div>
 <% end %>

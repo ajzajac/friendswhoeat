@@ -1,5 +1,7 @@
-<h1 style="color:goldenrod;">Editing User</h1>
-
+<div class="container" style="text-align:center">
+<h1 style="color:goldenrod;">Change Your Profile</h1>
+<%= image_tag(@user.image, style: "width: 10rem; padding: .1rem;", class: "rounded-circle") %>
+</div>
 <%= render 'form', user: @user %>
 
 

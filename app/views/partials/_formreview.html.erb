@@ -11,22 +11,13 @@
       </ul>
     </div>
   <% end %>
-
-
-  <div class="field">
-    <%= form.label "Restaurant: " %>
-    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name, {:selected => "15"} %>
-  </div>
+<hr>
      
   <div class="field">
     <%= form.label "Review: " %>
-    <%= form.text_area :description, :maxlength => 45 %>
+    <%= form.text_field :description, :maxlength => 45 %>
   </div>
   <hr>
-  <div class="field">
-    <%= form.label "Add A Picture:" %>
-    <%= form.file_field :image %>
-  </div>
 
   <div class="field">
     <%= form.label "Rating(1-5 stars): " %>

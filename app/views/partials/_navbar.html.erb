@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top rounded-bottom">
-  <div class="container">
+  <div class="container convo">
     <a class="navbar-brand" href="/">friends who eat!</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to 'Home', '/', id: "home-link", class: 'nav-link' %>
         </li>
         <li class="nav-item">
@@ -20,8 +20,10 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%= current_user().email %></a>
         </li>
-
         <% end %>
+          <%if @user && @user.image.attachment%>
+          <%= image_tag(@user.image, style: "width: 2.3rem; padding: .0001rem;", class: "img-thumbnail rounded-circle") %>
+        <%end%>
         <li class="nav-item">
           <%= (logged_in?) ? link_to("Logout", logout_path, id: "logout-link", class: 'nav-link') : link_to("Login", login_path, id: "login-link", class: 'nav-link') %>
         </li>
@@ -29,3 +31,4 @@
     </div>
   </div>
 </nav>
+<br>
