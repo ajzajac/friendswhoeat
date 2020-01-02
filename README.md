@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a social networking web application made for people who love going out to eat.
 
-Things you may want to cover:
+Made with Ruby on Rails 2.6.1, HTML, styled with CSS and bootstrap.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Features include user-to-user messaging, friend requests, newsfeed of friends activity, reservation system, ratings and reviews system, image uploading.
